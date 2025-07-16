@@ -17,13 +17,6 @@ const userSchema = new mongoose.Schema({
     password:{
         type: String,
         require:true,
-    },
-    status: {
-        type: String,
-        enum: {
-            values: ["pending", "in-progress", "complete"],
-            message: `{VALUE} is not a valid status`,
-        }
     }
 },
     { timestamps: true }
