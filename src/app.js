@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB=require("./config/database");
+const cookieParser = require("cookie-parser");
 //const taskModel = require("./models/taskdb");
 
 dotenv.config();
@@ -10,6 +11,7 @@ const app = express();
   // it will act as a middleware for all the api request where
   // the data coming in the form of JSON will be convert to JavaScript Object  
 app.use(express.json());
+app.use(cookieParser());
 
 //importing routers
 const AuthRouter=require("./routers/auth");
