@@ -91,20 +91,24 @@ to-do-list/
 │   ├── app.js
 │   ├── config/
 │   │   └── database.js
+│   ├── middlewares/
+│   │   └── auth.js
 │   ├── models/
 │   │   ├── taskdb.js
 │   │   └── user.js
 │   ├── routers/
 │   │   ├── auth.js
 │   │   └── task.js
-│   ├── middlewares/
-│   │   └── auth.js
 │   └── utils/
+│       └── validation.js
 ├── .env
+├── .gitignore
 ├── package.json
-├── README.md
+├── package-lock.json
+├── vercel.json
 ```
 </pre>
+
 
 
 ⸻
