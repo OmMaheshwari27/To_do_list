@@ -84,16 +84,18 @@ node src/app.js
 
 📁 Folder Structure
 
-task-manager-api/
+<pre>
+```bash
+to-do-list/
 ├── src/
 │   ├── app.js
 │   ├── config/
 │   │   └── database.js
 │   ├── models/
-│   │   └── taskdb.js
+│   │   ├── taskdb.js
 │   │   └── user.js
 │   ├── routers/
-│   │   └── auth.js
+│   │   ├── auth.js
 │   │   └── task.js
 │   ├── middlewares/
 │   │   └── auth.js
@@ -101,6 +103,8 @@ task-manager-api/
 ├── .env
 ├── package.json
 ├── README.md
+```
+</pre>
 
 
 ⸻
