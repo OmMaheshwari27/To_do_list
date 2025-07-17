@@ -3,7 +3,7 @@ const user = require("../models/user");
 require('dotenv').config();
 
 // middleware to authenticate the user using jwt
-const auth = async (request, response, next) => {
+const Auth = async (request, response, next) => {
     try {
         // extract token from cookies
         const token = request.cookies?.token;
@@ -33,5 +33,5 @@ const auth = async (request, response, next) => {
 
 // export auth middleware
 module.exports = {
-    auth
+    Auth
 };
