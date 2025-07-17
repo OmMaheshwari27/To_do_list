@@ -2,6 +2,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const TaskRouter=express.Router();
+const mongoose=require("mongoose")
 
 const connectDB = require("../config/database");
 const taskModel = require("../models/taskdb");
@@ -90,7 +91,7 @@ TaskRouter.patch("/tasks/:id", Auth, async (request, response) => {
       throw new Error("Invalid status value : "+status);
     }
     // retrieve the task object from the DB
-    const task = await taskModel.findOne({taskId,user: request.user._id});
+    const task = await taskModel.findOne({_id:new mongoose.Types.ObjectId(taskId) ,user: request.user._id});
     if (!task) {
       throw new Error("Task not found");
     }
