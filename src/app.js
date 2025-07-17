@@ -22,63 +22,8 @@ app.use("/", AuthRouter);
 app.use("/", TaskRouter);
 
 
+const PORT = process.env.PORT || 8000;
 
-
-
-
-// app.post("/task", async (request, response) => {
-//     try {
-//         const { title, description, status } = request.body;
-//         const task = new taskModel({
-//             title,
-//             description,
-//             status,
-//         });
-
-//         await task.save();
-
-//         response.send("welcome");
-//     }
-//     catch (err) {
-//         response.status.send("some error is there : " + err.message);
-//     }
-// });
-// app.get("/task", async (request, response) => {
-//     try {
-//         const tasks = await taskModel.find({});
-//         if(!tasks || tasks.length==0){
-//             return response.status(404).send("no task found for you");
-//         }
-//         response.json({
-//             message:"here your all task",
-//             tasks,
-//         })
-//     }
-//     catch (err) {
-//         response.status(400).send("some error is there : " + err.message);
-//     }
-// });
-
-// app.get("/task/:id", async (request,response)=>{
-//     const id=request.params.id;
-//     const tasks= await taskModel.findById({_id:id});
-//     try{
-//         if(!tasks || tasks.length==0){
-//             return response.status(404).send("no task found for you");
-//         }
-//         response.json({
-//             message:"here your all task",
-//             tasks,
-//         })
-//     }
-//     catch (err) {
-//         response.status(400).send("some error is there : " + err.message);
-//     }
-// })
-
-
-
-
-app.listen("8000", () => {
-    console.log("server is running on port 8000");
-})
+app.listen(PORT, () => {
+    console.log(`✅ Server is running on port ${PORT}`);
+});

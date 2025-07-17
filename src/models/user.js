@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     lastName:{
         type:String,
     },
+    //email is set as unique so that one user can register using one email
     email: {
         type: String,
         required: true,

@@ -1,6 +1,6 @@
 const express = require("express");
 const AuthRouter=express.Router();
-//password encryption and jwt authentication
+//password encryption and jwt token authentication
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 

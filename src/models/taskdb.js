@@ -15,10 +15,12 @@ const taskSchema = new mongoose.Schema({
     },
     status: {
         type: String,
+        // only three status are allowed, if other then error will be displayed
         enum: {
             values: ["pending", "in-progress", "complete"],
             message: `{VALUE} is not a valid status`,
         },
+        //default status is pending
         default:"pending",
     }
 },

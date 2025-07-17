@@ -1,3 +1,4 @@
+//importing the required packages
 const express = require("express");
 const dotenv = require("dotenv");
 const TaskRouter=express.Router();
@@ -13,6 +14,7 @@ TaskRouter.use(express.json());
 
 const data="title description status createdAt updatedAt";
 
+//post api to add a new task in the database
 TaskRouter.post("/tasks", Auth ,async (request, response) => {
     try {
         const { title, description, status } = request.body;
@@ -55,7 +57,9 @@ TaskRouter.get("/tasks", Auth ,async (request, response) => {
 TaskRouter.get("/tasks/:id", Auth ,  async (request,response)=>{
     
     try{
+        // take the task id form the request
     const id=request.params.id;
+    // find the particular task by its id using findById function
     const tasks= await taskModel.findById({_id:id});
     
         if(!tasks){
