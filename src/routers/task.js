@@ -22,6 +22,7 @@ TaskRouter.post("/tasks", Auth ,async (request, response) => {
             title,
             description,
             status,
+            user: request.user._id
         });
 
         await task.save();
@@ -38,7 +39,7 @@ TaskRouter.post("/tasks", Auth ,async (request, response) => {
 // fetch api for all tasks
 TaskRouter.get("/tasks", Auth ,async (request, response) => {
     try {
-        const tasks = await taskModel.find({});
+        const tasks = await taskModel.find({user: request.user._id});
         // checking if any task exist or not
         if(!tasks || tasks.length==0){
             return response.status(404).send("No task found for you");
@@ -60,7 +61,7 @@ TaskRouter.get("/tasks/:id", Auth ,  async (request,response)=>{
         // take the task id form the request
     const id=request.params.id;
     // find the particular task by its id using findById function
-    const tasks= await taskModel.findById({_id:id});
+    const tasks= await taskModel.findById({_id:id,user: request.user._id});
     
         if(!tasks){
             return response.status(404).send("no task found for you");
@@ -89,7 +90,7 @@ TaskRouter.patch("/tasks/:id", Auth, async (request, response) => {
       throw new Error("Invalid status value : "+status);
     }
     // retrieve the task object from the DB
-    const task = await taskModel.findById(taskId);
+    const task = await taskModel.findOne({taskId,user: request.user._id});
     if (!task) {
       throw new Error("Task not found");
     }
@@ -119,7 +120,7 @@ TaskRouter.delete("/tasks/:id", Auth, async (request, response) => {
     //getting the task id by request parameters
     const taskId = request.params.id;
     // with mongoDB function deleted the task
-    const deletedTask = await taskModel.findByIdAndDelete(taskId);
+    const deletedTask = await taskModel.findOneAndDelete({ _id: taskId, user: request.user._id });
     //check is deleted task is returned or null
     if (!deletedTask) {
       return response.status(404).json({
