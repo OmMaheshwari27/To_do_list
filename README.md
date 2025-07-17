@@ -46,14 +46,14 @@ A simple and secure task manager RESTful API built with Node.js, Express, and Mo
 ⚙️ Installation & Running the Project
 
 1. Clone the Repository
-
+```
 git clone https://github.com/yourusername/task-manager-api.git
 cd task-manager-api
-
+```
 2. Install Dependencies
-
+```
 npm install
-
+```
 ## 📦 Additional Dependencies
 
 | Package         | Purpose                           |
@@ -70,14 +70,14 @@ npm install
 3. Set Up Environment Variables
 
 Create a .env file in the root directory:
-
+```
 MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/taskdb
 JWT_SECRET=your_jwt_secret_key
-
+```
 4. Start the Server
-
+```
 node src/app.js
-
+```
 🔗 Server will run on: http://localhost:8000
 
 ⸻
